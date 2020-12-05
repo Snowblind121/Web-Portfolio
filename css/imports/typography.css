@@ -24,19 +24,19 @@ em {
 }
 
 ::selection {
-  background: #ff9900;
+  background: #ffaa00;
   color: #FFF;
   text-shadow: none;
 }
 
 ::-moz-selection {
-  background: #ff9900;
+  background: #ffaa00;
   color: #FFF;
   text-shadow: none;
 }
 
 ::-webkit-selection {
-  background: #ff9900;
+  background: #ffaa00;
   color: #FFF;
   text-shadow: none;
 }
@@ -57,7 +57,7 @@ body {
 
 a {
   text-decoration: none !important;
-  color: #ff9900;
+  color: #ffaa00;
 }
 a:hover {
   color: #222;
@@ -129,7 +129,7 @@ h3 > span:not(.nocolor):not(.badge),
 h4 > span:not(.nocolor):not(.badge),
 h5 > span:not(.nocolor):not(.badge),
 h6 > span:not(.nocolor):not(.badge) {
-  color: #ff9900;
+  color: #ffaa00;
 }
 
 p,
