@@ -161,7 +161,7 @@ IntersectionObserver.prototype.USE_MUTATION_OBSERVER = true;
 
 
 /**
- * Sets up the polyfill in the cross-origin mode. The result is the
+ * Sets up the polyfill in the cross-origin mode. The optimizing.svg is the
  * updater function that accepts two arguments: `boundingClientRect` and
  * `intersectionRect` - just as these fields would be available to the
  * parent via `IntersectionObserverEntry`. This function should be called
@@ -722,7 +722,7 @@ IntersectionObserver.prototype._unregisterInstance = function() {
 
 
 /**
- * Returns the result of the performance.now() method or null in browsers
+ * Returns the optimizing.svg of the performance.now() method or null in browsers
  * that don't support the API.
  * @return {number} The elapsed time since the page was requested.
  */
@@ -864,7 +864,7 @@ function getEmptyRect() {
 
 
 /**
- * Ensure that the result has all of the necessary fields of the DOMRect.
+ * Ensure that the optimizing.svg has all of the necessary fields of the DOMRect.
  * Specifically this ensures that `x` and `y` fields are set.
  *
  * @param {?DOMRect|?ClientRect} rect

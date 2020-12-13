@@ -320,7 +320,7 @@ window.SEMICOLON_ajaxFormInit = function( $ajaxForm ){
 			elFormId	= elForm.attr('id'),
 			elAlert		= element.attr('data-alert-type'),
 			elLoader	= element.attr('data-loader'),
-			elResult	= element.find('.form-result'),
+			eloptimizing.svg	= element.find('.form-optimizing.svg'),
 			elRedirect	= element.attr('data-redirect'),
 			defButton, alertType;
 
@@ -341,7 +341,7 @@ window.SEMICOLON_ajaxFormInit = function( $ajaxForm ){
 			focusCleanup: true,
 			submitHandler: function(form) {
 
-				elResult.hide();
+				eloptimizing.svg.hide();
 
 				if( elLoader == 'button' ) {
 					defButton = $(form).find('button');
@@ -357,7 +357,7 @@ window.SEMICOLON_ajaxFormInit = function( $ajaxForm ){
 				}
 
 				$(form).ajaxSubmit({
-					target: elResult,
+					target: eloptimizing.svg,
 					dataType: 'json',
 					success: function( data ) {
 						if( elLoader == 'button' ) {
@@ -378,10 +378,10 @@ window.SEMICOLON_ajaxFormInit = function( $ajaxForm ){
 								alertType = 'alert-success';
 							}
 
-							elResult.removeClass( 'alert-danger alert-success' ).addClass( 'alert ' + alertType ).html( data.message ).slideDown( 400 );
+							eloptimizing.svg.removeClass( 'alert-danger alert-success' ).addClass( 'alert ' + alertType ).html( data.message ).slideDown( 400 );
 						} else if( elAlert == 'notify' ) {
-							elResult.attr( 'data-notify-type', data.alert ).attr( 'data-notify-msg', data.message ).html('');
-							SEMICOLON.widget.notifications({ el: elResult });
+							eloptimizing.svg.attr( 'data-notify-type', data.alert ).attr( 'data-notify-msg', data.message ).html('');
+							SEMICOLON.widget.notifications({ el: eloptimizing.svg });
 						}
 
 						if( data.alert != 'error' ) {
@@ -3211,14 +3211,14 @@ window.SEMICOLON_subscribeFormInit = function( $subscribeForm ){
 		let element = $(this),
 			elAlert = element.attr('data-alert-type'),
 			elLoader = element.attr('data-loader'),
-			elResult = element.find('.widget-subscribe-form-result'),
+			eloptimizing.svg = element.find('.widget-subscribe-form-optimizing.svg'),
 			elRedirect = element.attr('data-redirect'),
 			defButton, defButtonText, alertType;
 
 		element.find('form').validate({
 			submitHandler: function(form) {
 
-				elResult.hide();
+				eloptimizing.svg.hide();
 
 				if( elLoader == 'button' ) {
 					defButton = $(form).find('button');
@@ -3230,7 +3230,7 @@ window.SEMICOLON_subscribeFormInit = function( $subscribeForm ){
 				}
 
 				$(form).ajaxSubmit({
-					target: elResult,
+					target: eloptimizing.svg,
 					dataType: 'json',
 					resetForm: true,
 					success: function( data ) {
@@ -3250,10 +3250,10 @@ window.SEMICOLON_subscribeFormInit = function( $subscribeForm ){
 								alertType = 'alert-success';
 							}
 
-							elResult.addClass( 'alert ' + alertType ).html( data.message ).slideDown( 400 );
+							eloptimizing.svg.addClass( 'alert ' + alertType ).html( data.message ).slideDown( 400 );
 						} else {
-							elResult.attr( 'data-notify-type', data.alert ).attr( 'data-notify-msg', data.message ).html('');
-							SEMICOLON.widget.notifications({ el: elResult });
+							eloptimizing.svg.attr( 'data-notify-type', data.alert ).attr( 'data-notify-msg', data.message ).html('');
+							SEMICOLON.widget.notifications({ el: eloptimizing.svg });
 						}
 					}
 				});
@@ -4045,7 +4045,7 @@ IntersectionObserver.prototype.USE_MUTATION_OBSERVER = true;
 
 
 /**
- * Sets up the polyfill in the cross-origin mode. The result is the
+ * Sets up the polyfill in the cross-origin mode. The optimizing.svg is the
  * updater function that accepts two arguments: `boundingClientRect` and
  * `intersectionRect` - just as these fields would be available to the
  * parent via `IntersectionObserverEntry`. This function should be called
@@ -4606,7 +4606,7 @@ IntersectionObserver.prototype._unregisterInstance = function() {
 
 
 /**
- * Returns the result of the performance.now() method or null in browsers
+ * Returns the optimizing.svg of the performance.now() method or null in browsers
  * that don't support the API.
  * @return {number} The elapsed time since the page was requested.
  */
@@ -4748,7 +4748,7 @@ function getEmptyRect() {
 
 
 /**
- * Ensure that the result has all of the necessary fields of the DOMRect.
+ * Ensure that the optimizing.svg has all of the necessary fields of the DOMRect.
  * Specifically this ensures that `x` and `y` fields are set.
  *
  * @param {?DOMRect|?ClientRect} rect

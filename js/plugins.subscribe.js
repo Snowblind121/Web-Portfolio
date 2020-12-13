@@ -12,14 +12,14 @@ window.SEMICOLON_subscribeFormInit = function( $subscribeForm ){
 		let element = $(this),
 			elAlert = element.attr('data-alert-type'),
 			elLoader = element.attr('data-loader'),
-			elResult = element.find('.widget-subscribe-form-result'),
+			eloptimizing.svg = element.find('.widget-subscribe-form-optimizing.svg'),
 			elRedirect = element.attr('data-redirect'),
 			defButton, defButtonText, alertType;
 
 		element.find('form').validate({
 			submitHandler: function(form) {
 
-				elResult.hide();
+				eloptimizing.svg.hide();
 
 				if( elLoader == 'button' ) {
 					defButton = $(form).find('button');
@@ -31,7 +31,7 @@ window.SEMICOLON_subscribeFormInit = function( $subscribeForm ){
 				}
 
 				$(form).ajaxSubmit({
-					target: elResult,
+					target: eloptimizing.svg,
 					dataType: 'json',
 					resetForm: true,
 					success: function( data ) {
@@ -51,10 +51,10 @@ window.SEMICOLON_subscribeFormInit = function( $subscribeForm ){
 								alertType = 'alert-success';
 							}
 
-							elResult.addClass( 'alert ' + alertType ).html( data.message ).slideDown( 400 );
+							eloptimizing.svg.addClass( 'alert ' + alertType ).html( data.message ).slideDown( 400 );
 						} else {
-							elResult.attr( 'data-notify-type', data.alert ).attr( 'data-notify-msg', data.message ).html('');
-							SEMICOLON.widget.notifications({ el: elResult });
+							eloptimizing.svg.attr( 'data-notify-type', data.alert ).attr( 'data-notify-msg', data.message ).html('');
+							SEMICOLON.widget.notifications({ el: eloptimizing.svg });
 						}
 					}
 				});
