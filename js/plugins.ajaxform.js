@@ -15,7 +15,7 @@ window.SEMICOLON_ajaxFormInit = function( $ajaxForm ){
 			elFormId	= elForm.attr('id'),
 			elAlert		= element.attr('data-alert-type'),
 			elLoader	= element.attr('data-loader'),
-			eloptimizing.svg	= element.find('.form-optimizing.svg'),
+			elResult	= element.find('.form-result'),
 			elRedirect	= element.attr('data-redirect'),
 			defButton, alertType;
 
@@ -36,7 +36,7 @@ window.SEMICOLON_ajaxFormInit = function( $ajaxForm ){
 			focusCleanup: true,
 			submitHandler: function(form) {
 
-				eloptimizing.svg.hide();
+				elResult.hide();
 
 				if( elLoader == 'button' ) {
 					defButton = $(form).find('button');
@@ -52,7 +52,7 @@ window.SEMICOLON_ajaxFormInit = function( $ajaxForm ){
 				}
 
 				$(form).ajaxSubmit({
-					target: eloptimizing.svg,
+					target: elResult,
 					dataType: 'json',
 					success: function( data ) {
 						if( elLoader == 'button' ) {
@@ -73,10 +73,10 @@ window.SEMICOLON_ajaxFormInit = function( $ajaxForm ){
 								alertType = 'alert-success';
 							}
 
-							eloptimizing.svg.removeClass( 'alert-danger alert-success' ).addClass( 'alert ' + alertType ).html( data.message ).slideDown( 400 );
+							elResult.removeClass( 'alert-danger alert-success' ).addClass( 'alert ' + alertType ).html( data.message ).slideDown( 400 );
 						} else if( elAlert == 'notify' ) {
-							eloptimizing.svg.attr( 'data-notify-type', data.alert ).attr( 'data-notify-msg', data.message ).html('');
-							SEMICOLON.widget.notifications({ el: eloptimizing.svg });
+							elResult.attr( 'data-notify-type', data.alert ).attr( 'data-notify-msg', data.message ).html('');
+							SEMICOLON.widget.notifications({ el: elResult });
 						}
 
 						if( data.alert != 'error' ) {

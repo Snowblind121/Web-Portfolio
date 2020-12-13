@@ -42,7 +42,7 @@ $.fn.scrollEnd = function(callback, timeout) {
 
 
 function debounce(func, wait, immediate) {
-	let timeout, args, context, timestamp, optimizing.svg;
+	let timeout, args, context, timestamp, result;
 	return function() {
 		context = this;
 		args = arguments;
@@ -53,15 +53,15 @@ function debounce(func, wait, immediate) {
 				timeout = setTimeout(later, wait - last);
 			} else {
 				timeout = null;
-				if (!immediate) optimizing.svg = func.apply(context, args);
+				if (!immediate) result = func.apply(context, args);
 			}
 		};
 		let callNow = immediate && !timeout;
 		if (!timeout) {
 			timeout = setTimeout(later, wait);
 		}
-		if (callNow) optimizing.svg = func.apply(context, args);
-		return optimizing.svg;
+		if (callNow) result = func.apply(context, args);
+		return result;
 	};
 }
 

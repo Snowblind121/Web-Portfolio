@@ -58,28 +58,28 @@
             map: $.map,
             filter: $.grep,
             every: function(obj, test) {
-                var optimizing.svg = true;
+                var result = true;
                 if (!obj) {
-                    return optimizing.svg;
+                    return result;
                 }
                 $.each(obj, function(key, val) {
-                    if (!(optimizing.svg = test.call(null, val, key, obj))) {
+                    if (!(result = test.call(null, val, key, obj))) {
                         return false;
                     }
                 });
-                return !!optimizing.svg;
+                return !!result;
             },
             some: function(obj, test) {
-                var optimizing.svg = false;
+                var result = false;
                 if (!obj) {
-                    return optimizing.svg;
+                    return result;
                 }
                 $.each(obj, function(key, val) {
-                    if (optimizing.svg = test.call(null, val, key, obj)) {
+                    if (result = test.call(null, val, key, obj)) {
                         return false;
                     }
                 });
-                return !!optimizing.svg;
+                return !!result;
             },
             mixin: $.extend,
             identity: function(x) {
@@ -104,31 +104,31 @@
                 setTimeout(fn, 0);
             },
             debounce: function(func, wait, immediate) {
-                var timeout, optimizing.svg;
+                var timeout, result;
                 return function() {
                     var context = this, args = arguments, later, callNow;
                     later = function() {
                         timeout = null;
                         if (!immediate) {
-                            optimizing.svg = func.apply(context, args);
+                            result = func.apply(context, args);
                         }
                     };
                     callNow = immediate && !timeout;
                     clearTimeout(timeout);
                     timeout = setTimeout(later, wait);
                     if (callNow) {
-                        optimizing.svg = func.apply(context, args);
+                        result = func.apply(context, args);
                     }
-                    return optimizing.svg;
+                    return result;
                 };
             },
             throttle: function(func, wait) {
-                var context, args, timeout, optimizing.svg, previous, later;
+                var context, args, timeout, result, previous, later;
                 previous = 0;
                 later = function() {
                     previous = new Date();
                     timeout = null;
-                    optimizing.svg = func.apply(context, args);
+                    result = func.apply(context, args);
                 };
                 return function() {
                     var now = new Date(), remaining = wait - (now - previous);
@@ -138,11 +138,11 @@
                         clearTimeout(timeout);
                         timeout = null;
                         previous = now;
-                        optimizing.svg = func.apply(context, args);
+                        result = func.apply(context, args);
                     } else if (!timeout) {
                         timeout = setTimeout(later, remaining);
                     }
-                    return optimizing.svg;
+                    return result;
                 };
             },
             stringify: function(val) {
@@ -971,28 +971,28 @@
             map: $.map,
             filter: $.grep,
             every: function(obj, test) {
-                var optimizing.svg = true;
+                var result = true;
                 if (!obj) {
-                    return optimizing.svg;
+                    return result;
                 }
                 $.each(obj, function(key, val) {
-                    if (!(optimizing.svg = test.call(null, val, key, obj))) {
+                    if (!(result = test.call(null, val, key, obj))) {
                         return false;
                     }
                 });
-                return !!optimizing.svg;
+                return !!result;
             },
             some: function(obj, test) {
-                var optimizing.svg = false;
+                var result = false;
                 if (!obj) {
-                    return optimizing.svg;
+                    return result;
                 }
                 $.each(obj, function(key, val) {
-                    if (optimizing.svg = test.call(null, val, key, obj)) {
+                    if (result = test.call(null, val, key, obj)) {
                         return false;
                     }
                 });
-                return !!optimizing.svg;
+                return !!result;
             },
             mixin: $.extend,
             identity: function(x) {
@@ -1017,31 +1017,31 @@
                 setTimeout(fn, 0);
             },
             debounce: function(func, wait, immediate) {
-                var timeout, optimizing.svg;
+                var timeout, result;
                 return function() {
                     var context = this, args = arguments, later, callNow;
                     later = function() {
                         timeout = null;
                         if (!immediate) {
-                            optimizing.svg = func.apply(context, args);
+                            result = func.apply(context, args);
                         }
                     };
                     callNow = immediate && !timeout;
                     clearTimeout(timeout);
                     timeout = setTimeout(later, wait);
                     if (callNow) {
-                        optimizing.svg = func.apply(context, args);
+                        result = func.apply(context, args);
                     }
-                    return optimizing.svg;
+                    return result;
                 };
             },
             throttle: function(func, wait) {
-                var context, args, timeout, optimizing.svg, previous, later;
+                var context, args, timeout, result, previous, later;
                 previous = 0;
                 later = function() {
                     previous = new Date();
                     timeout = null;
-                    optimizing.svg = func.apply(context, args);
+                    result = func.apply(context, args);
                 };
                 return function() {
                     var now = new Date(), remaining = wait - (now - previous);
@@ -1051,11 +1051,11 @@
                         clearTimeout(timeout);
                         timeout = null;
                         previous = now;
-                        optimizing.svg = func.apply(context, args);
+                        result = func.apply(context, args);
                     } else if (!timeout) {
                         timeout = setTimeout(later, remaining);
                     }
-                    return optimizing.svg;
+                    return result;
                 };
             },
             stringify: function(val) {
